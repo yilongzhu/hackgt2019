@@ -1,8 +1,8 @@
 import os
-
 from flask import Flask, request
-
 import dotenv
+
+import bose
 
 DOTENV_PATH = os.path.join(os.path.dirname(__file__), '.env')
 dotenv.load_dotenv(DOTENV_PATH)
@@ -20,7 +20,7 @@ def boost():
         command = params[0]
 
         if (command == 'setvol'):
-            #TODO: setvol function POST:/volume
+            bose.setvol(params[1])
             return payload
         elif (command == 'sinfo'):
             #TODO: sinfo function GET: /now_playing
