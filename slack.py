@@ -4,6 +4,8 @@ from flask import Flask, request
 
 import dotenv
 
+import bose
+
 DOTENV_PATH = os.path.join(os.path.dirname(__file__), '.env')
 dotenv.load_dotenv(DOTENV_PATH)
 VERIFICATION_TOKEN = os.environ['VERIFICATION_TOKEN']
@@ -21,7 +23,12 @@ def boost():
 
         if (command == 'setvol'):
             #TODO: setvol function POST:/volume
-            return payload
+            if (len(params) > 1):
+                level = params[1]
+                bose.setvol(level)
+                payload['text'] = "Volume turned to " + level
+            else:
+                payload['text'] = "Please choose a volume level between 0 and 100"
         elif (command == 'sinfo'):
             #TODO: sinfo function GET: /now_playing
             return payload

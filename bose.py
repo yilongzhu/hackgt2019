@@ -1,8 +1,9 @@
 import requests
 
+# set the params:
+ip = "192.168.137.100:8090"
+
 def setvol(vol):
-    # set the params:
-    ip = "192.168.137.100:8090"
 
     # form and send the /volume POST request
     xml = """
@@ -11,4 +12,4 @@ def setvol(vol):
     """
     send = requests.post('http://' + ip + '/volume', data=xml)
 
-setvol(30)
+setvol(0)
