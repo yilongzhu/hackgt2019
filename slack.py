@@ -9,7 +9,7 @@ verification_token = os.environ['VERIFICATION_TOKEN']
 
 app = Flask(__name__)
 
-@app.route('/boost', methods=['POST'])
+@app.route('/boost', methods=['GET', 'POST'])
 def boost():
     return 'Hello, World!'
 
