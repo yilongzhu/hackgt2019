@@ -1,7 +1,5 @@
 import os
-
 from flask import Flask, request
-
 import dotenv
 
 import bose
