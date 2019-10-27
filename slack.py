@@ -45,11 +45,14 @@ def boost():
             else:
                 payload['text'] = "Music unmuted"
         elif (command == 'power'):
-            status = bose.power()
-            if (status == "STANDBY"):
-                payload['text'] = "Powered on"
-            else:
-                payload['text'] = "Powered off"
+            try:
+                status = bose.power()
+                if (status == "STANDBY"):
+                    payload['text'] = "Powered on"
+                else:
+                    payload['text'] = "Powered off"
+            except:
+                payload['text'] = "Power"
         else:
             return {'text': 'Invalid request'}
         return payload
