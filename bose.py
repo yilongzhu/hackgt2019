@@ -22,7 +22,6 @@ def skip():
     """
     send = requests.post('http://' + ip + '/key', data=xml)
 
-skip()
 def sinfo():
     response = requests.get('http://' + ip + '/now_playing')
     root = ET.fromstring(response.content)
@@ -33,3 +32,17 @@ def sinfo():
     album = root.find("album").text
     metadata = "Playing from " + media_player + ":\nTrack: " + track + "\nArtist: " + artist + "\nAlbum: " + album
     return metadata
+
+def play():
+    xml = """
+    <?xml version="1.0" ?>
+    <key state="press" sender="Gabbo">PLAY</key>
+    """
+    send = requests.post('http://' + ip + '/key', data=xml)
+
+def pause():
+    xml = """
+    <?xml version="1.0" ?>
+    <key state="press" sender="Gabbo">PAUSE</key>
+    """
+    send = requests.post('http://' + ip + '/key', data=xml)
