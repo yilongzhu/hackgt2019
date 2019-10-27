@@ -13,6 +13,16 @@ def setvol(vol):
     """
     send = requests.post('http://' + ip + '/volume', data=xml)
 
+def skip():
+
+    # form and send the /volume POST request
+    xml = """
+    <?xml version="1.0" ?>
+    <key state="press" sender="Gabbo">NEXT_TRACK</key>
+    """
+    send = requests.post('http://' + ip + '/key', data=xml)
+
+skip()
 def sinfo():
     response = requests.get('http://' + ip + '/now_playing')
     root = ET.fromstring(response.content)
@@ -23,4 +33,3 @@ def sinfo():
     album = root.find("album").text
     metadata = "Playing from " + media_player + ":\nTrack: " + track + "\nArtist: " + artist + "\nAlbum: " + album
     return metadata
-
