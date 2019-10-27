@@ -12,4 +12,13 @@ def setvol(vol):
     """
     send = requests.post('http://' + ip + '/volume', data=xml)
 
-setvol(0)
+def skip():
+
+    # form and send the /volume POST request
+    xml = """
+    <?xml version="1.0" ?>
+    <key state="press" sender="Gabbo">NEXT_TRACK</key>
+    """
+    send = requests.post('http://' + ip + '/key', data=xml)
+
+skip()
