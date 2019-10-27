@@ -10,12 +10,17 @@ VERIFICATION_TOKEN = os.environ['VERIFICATION_TOKEN']
 
 app = Flask(__name__)
 
+@app.route('/tts', methods=['GET', 'POST'])
+def tts():
+    return 0
+
 @app.route('/boost', methods=['GET', 'POST'])
 def boost():
     if request.form['token'] == VERIFICATION_TOKEN:
         payload = {'text': 'Slack slash command is successful!'}
         text = request.form['text']
         user = request.form['user_name']
+        channel = request.form['channel_name']
         params = text.split(" ")
         command = params[0]
 

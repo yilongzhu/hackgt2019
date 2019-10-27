@@ -2,7 +2,7 @@ import requests
 import xml.etree.ElementTree as ET
 
 # set the params:
-ip = "192.168.137.161:8090"
+ip = "192.168.137.139:8090"
 
 def setvol(vol):
 
