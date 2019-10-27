@@ -58,6 +58,13 @@ def boost():
                     payload['text'] = "Powered off"
             except:
                 payload['text'] = "Power"
+        elif (command == 'preset'):
+            if (len(params) > 1):
+                preset = params[1]
+                bose.playpreset(preset)
+                payload['text'] = "Now playing Preset " + preset
+            else:
+                payload['text'] = "Please choose a preset 1-6"
         else:
             return {'text': 'Invalid request'}
         return payload
