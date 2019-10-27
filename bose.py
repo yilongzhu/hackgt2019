@@ -90,4 +90,4 @@ def tts():
         <volume>70</volume>
     </play_info>
     """
-    send = requests.post('http://' + ip + '/key', data=xml)
+    send = requests.post('http://' + ip + '/speaker', data=xml)
