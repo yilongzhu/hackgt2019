@@ -46,3 +46,11 @@ def pause():
     <key state="press" sender="Gabbo">PAUSE</key>
     """
     send = requests.post('http://' + ip + '/key', data=xml)
+
+def mute():
+    # form and send the /volume POST request
+    xml = """
+    <?xml version="1.0" ?>
+    <key state="press" sender="Gabbo">MUTE</key>
+    """
+    send = requests.post('http://' + ip + '/key', data=xml)
