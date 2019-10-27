@@ -15,7 +15,7 @@ app = Flask(__name__)
 def tts():
     if request.form['token'] == VERIFICATION_TOKEN:
         payload = {'text': 'Slack slash command is successful!'}
-        text = "d " + request.form['text']
+        text = "x    " + request.form['text']
         tts = gTTS(text=text, lang='en')
         tts.save("static/tts.mp3")
 
