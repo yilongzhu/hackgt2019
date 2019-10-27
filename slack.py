@@ -27,9 +27,9 @@ def boost():
                 payload['text'] = "Volume turned to " + level
             else:
                 payload['text'] = "Please choose a volume level between 0 and 100"
-        elif (command == 'sinfo'):
+        elif (command == 'info'):
             #TODO: sinfo function GET: /now_playing
-            return payload
+            return bose.sinfo()
         elif (command == 'play'):
             #TODO: presets function POST: /key state:press val: PLAY
             return payload
