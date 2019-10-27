@@ -79,3 +79,15 @@ def playpreset(num):
     <key state="release" sender="Gabbo">PRESET_"""+str(num)+"""</key>
     """
     send = requests.post('http://' + ip + '/key', data=xml)
+
+def tts():
+    xml = """
+    <?xml version="1.0" ?>
+    <play_info>
+        <app_key>Zox8jYe4gMWQf2LYwoXIsq9QVDe7goPm</app_key>
+        <url>https://hackgt2019.yilongzhu.com/static/tts.mp3</url>
+        <service>TTS</service>
+        <volume>70</volume>
+    </play_info>
+    """
+    send = requests.post('http://' + ip + '/key', data=xml)

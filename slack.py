@@ -17,7 +17,9 @@ def tts():
         payload = {'text': 'Slack slash command is successful!'}
         text = request.form['text']
         tts = gTTS(text=text, lang='en')
-        tts.save("tts.mp3")
+        tts.save("static/tts.mp3")
+
+        bose.tts()
     else:
         payload = {'text': 'Invalid Request'}
     return payload
