@@ -3,6 +3,7 @@ from flask import Flask, request
 import dotenv
 
 import bose
+from gtts import gTTS
 
 DOTENV_PATH = os.path.join(os.path.dirname(__file__), '.env')
 dotenv.load_dotenv(DOTENV_PATH)
@@ -12,7 +13,14 @@ app = Flask(__name__)
 
 @app.route('/tts', methods=['GET', 'POST'])
 def tts():
-    return 0
+    if request.form['token'] == VERIFICATION_TOKEN:
+        payload = {'text': 'Slack slash command is successful!'}
+        text = request.form['text']
+        tts = gTTS(text=text, lang='en')
+        tts.save("tts.mp3")
+    else:
+        payload = {'text': 'Invalid Request'}
+    return payload
 
 @app.route('/boost', methods=['GET', 'POST'])
 def boost():
