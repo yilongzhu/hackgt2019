@@ -65,11 +65,17 @@ def power():
     send = requests.post('http://' + ip + '/key', data=xml)
     return source_context['source']
 
-
 def mute():
     # form and send the /volume POST request
     xml = """
     <?xml version="1.0" ?>
     <key state="press" sender="Gabbo">MUTE</key>
+    """
+    send = requests.post('http://' + ip + '/key', data=xml)
+
+def playpreset(num):
+    xml = """
+    <?xml version="1.0" ?>
+    <key state="release" sender="Gabbo">PRESET_"""+str(num)+"""</key>
     """
     send = requests.post('http://' + ip + '/key', data=xml)
