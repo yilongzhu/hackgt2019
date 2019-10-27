@@ -35,10 +35,10 @@ def boost():
         elif (command == 'info'):
             payload['text'] = bose.sinfo()
         elif (command == 'play'):
-            payload['text'] = "Audio Resumed"
+            payload['text'] = "Audio resumed"
             bose.play()
         elif (command == 'pause'):
-            payload['text'] = "Audio Paused"
+            payload['text'] = "Audio paused"
             bose.pause()
         elif (command == 'skip'):
             bose.skip()
