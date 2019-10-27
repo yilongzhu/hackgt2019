@@ -38,6 +38,12 @@ def boost():
         elif (command == 'skip'):
             bose.skip()
             payload['text'] = "Track skipped"
+        elif (command in ["mute", "unmute"]):
+            bose.mute()
+            if(command=='mute'):
+                payload['text'] = "Music muted"
+            else:
+                payload['text'] = "Music unmuted"
         elif (command == 'power'):
             #TODO: presets function POST: /key state:press val: POWER
             #TODO: presets function POST: /key state:release val: POWER
