@@ -28,16 +28,14 @@ def boost():
             else:
                 payload['text'] = "Please choose a volume level between 0 and 100"
         elif (command == 'info'):
-            #TODO: sinfo function GET: /now_playing
-            return bose.sinfo()
+            payload['text'] = bose.sinfo()
         elif (command == 'play'):
-            #TODO: presets function POST: /key state:press val: PLAY
-            return payload
+            payload['text'] = "Audio Resumed"
+            bose.play()
         elif (command == 'pause'):
-            #TODO: pause function POST: /key state:press val: PAUSE
-            return payload
+            payload['text'] = "Audio Paused"
+            bose.pause()
         elif (command == 'skip'):
-            #TODO: presets function POST: /key state:press val: NEXT_TRACK
             bose.skip()
             payload['text'] = "Track skipped"
         elif (command == 'power'):
