@@ -39,9 +39,11 @@ def boost():
             bose.skip()
             payload['text'] = "Track skipped"
         elif (command == 'power'):
-            #TODO: presets function POST: /key state:press val: POWER
-            #TODO: presets function POST: /key state:release val: POWER
-            return payload
+            status = bose.power()
+            if (status == "STANDBY"):
+                payload['text'] = "Powered on"
+            else:
+                payload['text'] = "Powered off"
         else:
             return {'text': 'Invalid request'}
         return payload
