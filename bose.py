@@ -2,7 +2,7 @@ import requests
 import xml.etree.ElementTree as ET
 
 # set the params:
-ip = "192.168.137.100:8090"
+ip = "192.168.137.161:8090"
 
 def setvol(vol):
 
@@ -30,7 +30,8 @@ def sinfo():
     track = root.find("track").text
     artist = root.find("artist").text
     album = root.find("album").text
-    metadata = "Playing from " + media_player + ":\nTrack: " + track + "\nArtist: " + artist + "\nAlbum: " + album
+    cover = root.find("art").text
+    metadata = "Playing from " + media_player + ":\nTrack: " + track + "\nArtist: " + artist + "\nAlbum: " + album + "\n" + cover
     return metadata
 
 def play():
