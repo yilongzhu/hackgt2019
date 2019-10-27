@@ -47,6 +47,24 @@ def pause():
     """
     send = requests.post('http://' + ip + '/key', data=xml)
 
+def power():
+    response = requests.get('http://' + ip + '/now_playing')
+    root = ET.fromstring(response.content)
+    source_context = root.attrib
+    print(source_context)
+    xml = """
+    <?xml version="1.0" ?>
+    <key state="press" sender="Gabbo">POWER</key>
+    """
+    send = requests.post('http://' + ip + '/key', data=xml)
+    xml = """
+    <?xml version="1.0" ?>
+    <key state="release" sender="Gabbo">POWER</key>
+    """
+    send = requests.post('http://' + ip + '/key', data=xml)
+    return source_context['source']
+
+
 def mute():
     # form and send the /volume POST request
     xml = """
