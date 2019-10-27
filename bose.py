@@ -22,6 +22,5 @@ def sinfo():
     artist = root.find("artist").text
     album = root.find("album").text
     metadata = "Playing from " + media_player + ":\nTrack: " + track + "\nArtist: " + artist + "\nAlbum: " + album
-    print(metadata)
     return metadata
 
